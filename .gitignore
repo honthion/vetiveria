@@ -3,3 +3,6 @@ log
 qr.png
 wxpy.pkl
 *.txt
+*.exe
+*.o
+
