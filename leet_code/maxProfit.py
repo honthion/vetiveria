@@ -116,6 +116,6 @@ print minprice - 0
 prices = [3, 3, 5, 0, 0, 3, 1, 4]
 fee = 2
 # sumsx = Solution().maxProfit123(prices)
-sumsx = Solution().maxProfit188(2, prices)
+sumsx = Solution().maxProfit188_01(2, prices)
 
 print sumsx
