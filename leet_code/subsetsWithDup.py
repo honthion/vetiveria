@@ -41,6 +41,23 @@ class Solution(object):
         dfs(0)
         return out
 
+    def subsetsWithDup0(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if not nums:
+            return []
+        nums.sort()
+        ret, cur = [[]], []
+        for i in xrange(len(nums)):
+            if i > 0 and nums[i] == nums[i - 1]:
+                cur = [item + [nums[i]] for item in cur]
+            else:
+                cur = [item + [nums[i]] for item in ret]
+            ret += cur
+        return ret
+
 
 nums = [1, 2, 3, 4, 5, 6]
 ret = Solution().subsetsWithDup(nums)
