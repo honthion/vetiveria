@@ -6,7 +6,7 @@ import time
 # 打开日志文件
 backup_date = time.strftime("%Y%m%d")
 date_now = time.strftime('%Y-%m-%d %H:%M:%S')
-sqlStr1 = 'SELECT DISTINCT `phone_no`FROM `record_interface` WHERE DATEDIFF(`ctime`,CURDATE())=-1'
+sqlStr1 = 'SELECT DISTINCT `phone_no`FROM `record_interface` WHERE DATEDIFF(`ctime`,CURDATE())=-1 limit 10'
 try:
     db = MySQLdb.connect(host='172.16.50.150',
                          port=5541,
@@ -22,6 +22,7 @@ try:
     sheet = workbook.active
     for idx, val in enumerate(all_count):
         sheet.cell(row=idx+1, column=1).value = val[0]
+    sheet.protection.password = 'test'
     workbook.save(r'%s.xls' % (backup_date))
 except MySQLdb.Error, err_msg:
     print "MySQL error msg:", err_msg
