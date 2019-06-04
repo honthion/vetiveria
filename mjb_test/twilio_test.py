@@ -10,5 +10,4 @@ call = client.calls.create(
                         to='+8618623001528',
                         from_='+14694051528'
                     )
-
 print(call.sid)
